@@ -23,10 +23,10 @@ def scpTestResult(ipInfo):
 
 # 主机开启，四台虚拟机均是关闭状态才对
 
-hostIpList = []
-vmIpList = []
-nfs_based = [['192.168.9.168', 'nfs_host.txt'], ['192.168.9.80', 'nfs_vm1.txt'], ['192.168.9.85', 'nfs_vm2.txt']]
-local_based = [['192.168.9.81', 'local_host.txt'], ['192.168.9.82', 'local_vm1.txt'], ['192.168.9.83', 'local_vm2.txt']]
+environment = raw_input('您的虚拟化环境的 ip 地址：')
+os.system('wget http://' + environment + '/ca.crt')
+nfs_based = [[raw_input('基于 nfs 存储的主机的 ip 地址：'), raw_input('该台机器在虚拟平台中的名称：') + '.txt'], [raw_input('基于 nfs 存储的 1cpu8cores 的虚拟机的 ip 地址：'), raw_input('该台机器在虚拟平台中的名称：') + '.txt'], [raw_input('基于 nfs 存储的 8cpu1core 的虚拟机的 ip 地址：'), raw_input('该台机器在虚拟平台中的名称：') + '.txt']]
+local_based = [[raw_input('基于本地存储的主机的 ip 地址：'), raw_input('该台机器在虚拟平台中的名称：') + '.txt'], [raw_input('基于本地存储的 1cpu8cores 的虚拟机的 ip 地址：'), raw_input('该台机器在虚拟平台中的名称：') + '.txt'], [raw_input('基于本地存储的 8cpu1core 的虚拟机的 ip 地址：'), raw_input('该台机器在虚拟平台中的名称：') + '.txt']] 
 machine_info = [nfs_based, local_based]
 # 对主机进行测试
 for i in machine_info:
